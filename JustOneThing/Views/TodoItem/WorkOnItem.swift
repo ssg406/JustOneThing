@@ -24,18 +24,23 @@ struct WorkOnItem: View {
         ZStack {
             OrangeGradientBackground()
             if let todo = todo {
-                VStack {
+                VStack(spacing: 15) {
                     WordJumblingAnimation(todo.name, maxCycles: 8)
                         .permanentMarker(26, relativeTo: .title)
                     
                     if showResultView {
-                        TodoItemDetail(todoItem: todo)
-                            .transition(.scale)
+                        VStack {
+                            TodoItemDetail(todoItem: todo)
+                                .transition(.scale)
+                        }
+                        .formItemBackground()
+                        .transition(.scale)
                         
-                        VStack(spacing: 25) {
+                        VStack(spacing: 15) {
                             Button("No Thanks", systemImage: "hand.thumbsdown") {
                                 dismiss()
                             }
+                            .formItemBackground()
                             
                             Button("Sounds Good", systemImage: "hand.thumbsup") {
                                 Task {
@@ -43,15 +48,13 @@ struct WorkOnItem: View {
                                 }
                                 dismiss()
                             }
+                            .formItemBackground()
                         }
                         .buttonText()
                         .transition(.scale)
-                        
                     }
                 }
-                .frame(maxWidth: .infinity)
                 .bodyText()
-                .formItemBackground()
                 .padding()
             } else {
                 /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
@@ -61,7 +64,7 @@ struct WorkOnItem: View {
         .toolbar { NavigationToolbar("Just One Thing") { dismiss() } }
         .onAppear {
             Task {
-                try? await Task.sleep(for: .seconds(6))
+                try? await Task.sleep(for: .seconds(4))
                 withAnimation() {
                     showResultView = true
                 }
