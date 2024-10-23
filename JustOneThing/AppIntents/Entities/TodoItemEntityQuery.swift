@@ -10,7 +10,7 @@ import SwiftData
 
 struct TodoItemEntityQuery: EntityQuery {
     
-    @Dependency(key: "ModelContainer")
+    @Dependency(key: C.Keys.modelContainer)
     var modelContainer: ModelContainer
     
     func entities(for identifiers: [Entity.ID]) async throws -> [TodoItemEntity] {
