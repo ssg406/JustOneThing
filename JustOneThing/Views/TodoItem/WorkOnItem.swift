@@ -6,75 +6,78 @@
 //
 import SwiftUI
 import SwiftData
-import UserNotifications
 
 struct WorkOnItem: View {
-    @Query private var items: [TodoItem]
-    @State private var vm = WorkOnItemViewModel()
+    @Environment(\.dismiss) private var dismiss
+    let todo: TodoItem?
+    @State private var showResultView: Bool = false
+    @State private var showError: Bool = false
+
+    init() {
+        todo = try? TodoManager.shared.allTodos().randomElement()
+        if todo == nil {
+            showError = true
+        }
+    }
     
     var body: some View {
-            VStack {
-                if let todo = vm.selectedTodo {
-                    VStack {
-                        HStack {
-                            WordJumblingAnimation(todo.name, maxCycles: 5)
-                                .quicksand(24, relativeTo: .title)
-                                .bold()
-                            Image(systemName: C.Img.rightChevron)
-                                .rotationEffect(vm.showItemDetails ? .degrees(90) : .degrees(0))
-                        }
-                        if vm.showItemDetails {
-                            TodoItemDetail(todoItem: todo)
-                        }
-                    }
-                    .onTapGesture {
-                        vm.showItemDetails.toggle()
-                    }
-                }
-                
-                
-                
-                HStack {
+        ZStack {
+            OrangeGradientBackground()
+            if let todo = todo {
+                VStack {
+                    WordJumblingAnimation(todo.name, maxCycles: 8)
+                        .permanentMarker(26, relativeTo: .title)
                     
-                    Button(vm.showSelectedTodo ? "No Thanks" : "Start", systemImage: vm.showSelectedTodo ? C.Img.backArrowCircle : C.Img.playCircle) {
-                        vm.primaryButtonClicked()
-                    }
-                    .buttonText()
-                    
-                    if vm.showSelectedTodo {
-                        Spacer()
-                        Button("Got it!", systemImage: C.Img.stopwatch) {
-                            vm.scheduleNotification()
+                    if showResultView {
+                        TodoItemDetail(todoItem: todo)
+                            .transition(.scale)
+                        
+                        VStack {
+                            Button("No Thanks", systemImage: "hand.thumbsdown") {
+                                dismiss()
+                            }
+                            
+                            Button("Sounds Good", systemImage: "hand.thumbsup") {
+                                Task {
+                                    await NotificationManager.shared.scheduleNotification(for: todo)
+                                }
+                                dismiss()
+                            }
                         }
                         .buttonText()
-                    }
-                    
-                    
-                }
-                .padding(.top)
-                
-                if !vm.showSelectedTodo {
-                    Toggle("Choose Difficulty", isOn: $vm.includeDifficulty)
-                        .tint(.blue)
-
-                    if vm.includeDifficulty {
-                        TaskDifficultyPicker(selectedDifficulty: $vm.selectedDifficulty)
+                        .transition(.scale)
+                        
                     }
                 }
-
+                .frame(maxWidth: .infinity)
+                .bodyText()
+                .formItemBackground()
+                .padding()
+            } else {
+                /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
             }
-            .frame(maxWidth: .infinity)
-            .bodyText()
-            .formItemBackground()
-            .padding()
-            .animation(.easeInOut, value: vm.includeDifficulty)
-            .animation(.easeInOut, value: vm.showSelectedTodo)
-            .animation(.easeInOut, value: vm.showItemDetails)
-        
+        }
+        .navigationBarBackButtonHidden()
+        .toolbar { NavigationToolbar("Just One Thing") { dismiss() } }
+        .onAppear {
+            Task {
+                try? await Task.sleep(for: .seconds(6))
+                withAnimation() {
+                    showResultView = true
+                }
+            }
+        }
+        .alert("Unable to load one thing...", isPresented: $showError) {
+            Button("OK", role: .cancel) {
+                dismiss()
+            }
+        }
     }
 }
 
 #Preview {
-    WorkOnItem()
-        .modelContainer(PreviewDataProvider.previewContainer)
+    NavigationStack {
+        WorkOnItem()
+            .modelContainer(PreviewDataProvider.previewContainer)
+    }
 }

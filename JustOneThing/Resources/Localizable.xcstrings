@@ -7,7 +7,7 @@
     "Add a Todo Item" : {
 
     },
-    "Add an Item" : {
+    "Add One Thing" : {
 
     },
     "Add Todo Item" : {
@@ -17,9 +17,6 @@
 
     },
     "Back" : {
-
-    },
-    "Choose Difficulty" : {
 
     },
     "Complexity" : {
@@ -61,9 +58,6 @@
     "Give it a name" : {
 
     },
-    "Got it!" : {
-
-    },
     "High" : {
 
     },
@@ -97,13 +91,19 @@
     "Note any phone numbers, emails, or URLs you'll need" : {
 
     },
+    "OK" : {
+
+    },
     "Settings" : {
 
     },
-    "Start" : {
+    "Sounds Good" : {
 
     },
     "Start a Todo Item" : {
+
+    },
+    "Start One Thing" : {
 
     },
     "Tell your future self why you should do it" : {
@@ -122,6 +122,9 @@
 
     },
     "Unable to get a todo item" : {
+
+    },
+    "Unable to load one thing..." : {
 
     },
     "What do you need to complete it?" : {

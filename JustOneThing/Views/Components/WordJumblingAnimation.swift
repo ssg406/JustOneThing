@@ -55,18 +55,18 @@ struct LetterSpinner: View {
             .task {
                 for _ in 0..<cycles {
                     try? await Task.sleep(for: .seconds(cycleLength))
-                    withAnimation(.easeInOut) {
-                        currentCharacter = possibleCharacters.randomElement()!
-
+                    withAnimation {
+                        currentCharacter = possibleCharacters.randomElement() ?? "x"
                     }
                 }
-                
-                currentCharacter = finalLetter
+                withAnimation(.easeIn) {
+                    currentCharacter = finalLetter
+                }
             }
     }
 
 }
 
 #Preview {
-    WordJumblingAnimation("Clean counters")
+    WordJumblingAnimation("A testing task word")
 }

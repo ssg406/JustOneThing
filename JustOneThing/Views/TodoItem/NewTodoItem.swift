@@ -55,6 +55,7 @@ struct NewTodoItem: View {
     
     private func addTodoItem() {
         context.insert(model)
+        try? context.save()
         dismiss()
     }
 }

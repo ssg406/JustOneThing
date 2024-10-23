@@ -43,6 +43,7 @@ struct GetTodoItemIntentResultView: View {
                 .frame(width: 30, height: 30)
                 .foregroundStyle(imageNameColor.1)
         }
+        .padding(.horizontal)
     }
 }
 

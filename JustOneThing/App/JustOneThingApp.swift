@@ -9,10 +9,7 @@ import SwiftUI
 import SwiftData
 import AppIntents
 
-// Change references to items to "ONE" thing eg add one item
 // easy medium hard -- potential to overthink when classifying
-
-// start one thing -- add one thing on homepage
 
 
 @main

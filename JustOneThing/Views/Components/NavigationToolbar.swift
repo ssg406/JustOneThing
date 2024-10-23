@@ -24,6 +24,7 @@ struct NavigationToolbar: ToolbarContent {
         
         ToolbarItem(placement: .cancellationAction) {
             Button("Back", systemImage: C.Img.backArrowCircle, action: backAction)
+                .tint(.primary)
         }
     }
 }

@@ -30,8 +30,10 @@ struct GetTodoItemIntent: AppIntent {
         guard let item = item else {
             return .result(dialog: "Unable to get a todo item")
         }
-        
-        return .result(dialog: "Time to get started", view: GetTodoItemIntentResultView(foundItem: item))
+        let result = IntentResultContainer.result(dialog: "Time to get started", view: GetTodoItemIntentResultView(foundItem: item))
+        // Donate result to system transcript
+        try await IntentDonationManager.shared.donate(intent: GetTodoItemIntent(), result: result)
+        return result
     }
     
     func getItems() async throws -> [TodoItem] {
@@ -64,7 +66,11 @@ struct CreateTodoItemIntent: AppIntent {
         
         do {
             try context.save()
-            return .result(dialog: "Created New Todo Item", view: GetTodoItemIntentResultView(foundItem: todoItem))
+            // Donate intent and result to system transcript
+            let result = IntentResultContainer.result(dialog: "Created New Todo Item", view: GetTodoItemIntentResultView(foundItem: todoItem))
+            try await IntentDonationManager.shared.donate(intent: CreateTodoItemIntent(), result: result)
+            
+            return result
         } catch {
             print("Error saving todo item: \(error)")
             return .result(dialog: "The todo item could not be created.")

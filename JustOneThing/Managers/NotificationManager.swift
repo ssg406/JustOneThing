@@ -6,12 +6,11 @@
 //
 import Foundation
 import UserNotifications
-import SwiftData
 
 final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     #if DEBUG
-    private let notificationDelay: TimeInterval = 30
+    private let notificationDelay: TimeInterval = 15
     #else
     private let notificationDelay: TimeInterval = 60 * 60
     #endif
@@ -21,10 +20,12 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     private override init() {
         super.init()
+        UNUserNotificationCenter.current().delegate = self
         self.setNotificationActions()
     }
     
     private func setNotificationActions() {
+        Log.notifications.debug("[NotificationManager] Setting notification actions")
         let markDoneAction = UNNotificationAction(identifier: C.Notifications.markDoneAction, title: "Done", options: [], icon: .init(systemImageName: "checkmark"))
         let snoozeAction = UNNotificationAction(identifier: C.Notifications.snoozeAction, title: "Snooze", options: [], icon: .init(systemImageName: "clock"))
         let todoCategory = UNNotificationCategory(identifier: C.Notifications.category, actions: [markDoneAction, snoozeAction], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: .customDismissAction)
@@ -34,10 +35,10 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     func requestNotificationPermission() async {
         do {
+            Log.notifications.debug("[NotificationManager] Requestion permissions from user")
             try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge])
-            print("requested notification")
         } catch {
-            print("Notification permission request failed: \(error.localizedDescription)")
+            Log.notifications.error("[NotificationManager] Permission request failed: \(error.localizedDescription)")
         }
     }
     
@@ -48,9 +49,9 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             await requestNotificationPermission()
         }
         
-        // Valid todo, and todo was not completed
+        // Ensure todo was not completed before notification request
         guard !todo.isDone else {
-            print("Todo was already marked completed")
+            Log.notifications.debug("[NotificationManager] Todo was already completed, skipping notification")
             return
         }
         
@@ -65,32 +66,42 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         
         do {
             try await UNUserNotificationCenter.current().add(request)
-            print("Requested nottification")
+            Log.notifications.debug("[NotificationManager] Notification scheduled for \(todo.id)")
         } catch {
-            print("Error adding notification request: \(error.localizedDescription)")
+            Log.notifications.error("[NotificationManager] Error adding request: \(error.localizedDescription)")
         }
     }
     
+    @MainActor
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
-        let userInfo = response.notification.request.content.userInfo
         
+        let userInfo = response.notification.request.content.userInfo
+        Log.notifications.debug("[NotificationManager] Received notification response: \(userInfo)")
+        Log.notifications.debug("[NotificationManager] Notification action: \(response.actionIdentifier)")
         // Check ID ws received and todo was found
-        guard let todoId = userInfo[C.Notifications.todoId] as? PersistentIdentifier else { return }
-        guard let todo = try? await TodoManager.shared.todoByID(id: todoId) else { return }
+        guard let todoId = userInfo[C.Notifications.todoId] as? String else {
+            Log.notifications.warning("[NotificationManager] Could not get ID from info")
+            return
+        }
+        guard let todo = try? TodoManager.shared.todoByID(id: todoId) else {
+            Log.notifications.warning("[NotificationManager] Could not find todo from ID")
+            return
+        }
         
         // Check notifification action
         switch response.actionIdentifier {
-            case C.Notifications.markDoneAction:
+        case C.Notifications.markDoneAction:
             do {
-                try await TodoManager.shared.markTodoComplete(id: todo.id)
+                try TodoManager.shared.markTodoComplete(id: todo.id)
             } catch {
-                print("Unable to mark todo complete: \(error)")
+                Log.notifications.error("[NotificationManager] Error when marking todo complete: \(error.localizedDescription)")
             }
         case C.Notifications.snoozeAction:
             await self.scheduleNotification(for: todo)
         default:
-            print("Invalid action identifier: \(response.actionIdentifier)")
+            Log.notifications.warning("[NotificationManager] Invalid action identifier: \(response.actionIdentifier)")
         }
+        
     }
     
 }

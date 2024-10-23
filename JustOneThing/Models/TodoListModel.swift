@@ -55,12 +55,7 @@ final class TodoListModel {
         showSelectedTodo = true
     }
     
-    func scheduleNotification() {
-        
-        guard let todo = selectedTodo else {
-            Log.viewModel.warning("(WorkOnItemViewModel) Attempted to schedule notification for nil todo")
-            return
-        }
+    func scheduleNotification(for todo: TodoItem) {
         Task {
             await NotificationManager.shared.scheduleNotification(for: todo)
         }

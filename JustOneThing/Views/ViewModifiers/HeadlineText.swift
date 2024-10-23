@@ -11,7 +11,7 @@ struct HeadlineText: ViewModifier {
     func body(content: Content) -> some View {
         content
             .textCase(.uppercase)
-            .quicksand(14.0, relativeTo: .caption)
+            .quicksand(16.0, relativeTo: .caption)
             .bold()
     }
 }

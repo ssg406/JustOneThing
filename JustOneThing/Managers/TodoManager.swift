@@ -28,16 +28,17 @@ final class TodoManager: NSObject {
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
             container = try ModelContainer(for: schema, configurations: [modelConfiguration])
-            Log.todoManager.debug("(Init) container created successfully")
+            Log.todoManager.debug("[TodoManager] container created successfully")
         } catch {
-            Log.todoManager.critical("(Init) Could not create ModelContainer: \(error)")
+            Log.todoManager.critical("[TodoManager] Could not create ModelContainer: \(error)")
             fatalError("Could not create ModelContainer: \(error)")
         }
     }
     
     
     func allTodos() throws -> [TodoItem] {
-        try container.mainContext.fetch(FetchDescriptor<TodoItem>())
+        Log.todoManager.debug("[TodoManager] Fetching all todos")
+        return try container.mainContext.fetch(FetchDescriptor<TodoItem>())
     }
     
     func addTodo(_ todo: TodoItem) throws {
@@ -54,24 +55,25 @@ final class TodoManager: NSObject {
         try container.mainContext.save()
     }
     
-    func todoByID(id: PersistentIdentifier) throws -> TodoItem {
-        let predicate = #Predicate<TodoItem> { $0.persistentModelID == id }
+    func todoByID(id: String) throws -> TodoItem {
+        let predicate = #Predicate<TodoItem> { $0.id == id }
         let foundTodos = try container.mainContext.fetch(FetchDescriptor<TodoItem>(predicate: predicate))
         
         guard let todo = foundTodos.first else {
             throw TodoManagerError.notFound(id: "\(id)")
         }
+        Log.todoManager.debug("Found todo: \(todo.id)")
         return todo
     }
     
-    func markTodoComplete(id: PersistentIdentifier) throws {
+    func markTodoComplete(id: String) throws {
         do {
             let todo = try todoByID(id: id)
             todo.isDone = true
+            Log.todoManager.debug("[TodoManager] Marked todo as complete: \(todo.id)")
             try container.mainContext.save()
         } catch {
-            Log.todoManager.error("Error marking todo as complete: \(error.localizedDescription)")
-            print("Error marking todo as complete: \(error.localizedDescription)")
+            Log.todoManager.error("[TodoManager] Error marking todo as complete: \(error.localizedDescription)")
             throw TodoManagerError.updateFailed(id: "\(id)")
         }
     }

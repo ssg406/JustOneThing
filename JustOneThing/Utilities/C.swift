@@ -42,6 +42,7 @@ struct C {
         static let circleSlash = "circle.slash"
         static let stopwatch = "stopwatch"
         static let rightChevron = "chevron.right"
+        static let runner = "figure.run"
     }
     
     struct Fonts {

@@ -10,6 +10,11 @@ import SwiftData
 struct Home: View {
     @Query var todoItems: [TodoItem]
     @Environment(\.modelContext) private var context
+    
+    var incompleteTodosExist: Bool {
+        !todoItems.allSatisfy(\.isDone) && todoItems.isNotEmpty
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -27,20 +32,23 @@ struct Home: View {
     
     var primaryOptions: some View {
         VStack {
-            Button("Add One Thing", systemImage: C.Img.squarePlus) {
-                
+            NavigationLink {
+                NewTodoItem()
+            } label: {
+                Label("Add One Thing", systemImage: C.Img.squarePlus)
             }
-            .buttonText()
             .formItemBackground()
             
-            
-            
-            Button("Start One Thing", systemImage: "figure.run") {
-                
+            if incompleteTodosExist {
+                NavigationLink {
+                    WorkOnItem()
+                } label: {
+                    Label("Start One Thing", systemImage: C.Img.runner)
+                }
+                .formItemBackground()
             }
-            .buttonText()
-            .formItemBackground()
         }
+        .buttonText()
     }
 }
 
