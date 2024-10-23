@@ -26,6 +26,10 @@ final class TodoManager: NSObject {
             TodoItem.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        
+#if DEBUG
+        container = PreviewDataProvider.previewContainer
+#else
         do {
             container = try ModelContainer(for: schema, configurations: [modelConfiguration])
             Log.todoManager.debug("[TodoManager] container created successfully")
@@ -33,6 +37,7 @@ final class TodoManager: NSObject {
             Log.todoManager.critical("[TodoManager] Could not create ModelContainer: \(error)")
             fatalError("Could not create ModelContainer: \(error)")
         }
+#endif
     }
     
     

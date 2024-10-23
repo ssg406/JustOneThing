@@ -32,7 +32,7 @@ struct WorkOnItem: View {
                         TodoItemDetail(todoItem: todo)
                             .transition(.scale)
                         
-                        VStack {
+                        VStack(spacing: 25) {
                             Button("No Thanks", systemImage: "hand.thumbsdown") {
                                 dismiss()
                             }
