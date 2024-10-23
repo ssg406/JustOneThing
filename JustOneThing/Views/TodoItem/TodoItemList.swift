@@ -8,33 +8,46 @@ import SwiftUI
 import SwiftData
 
 struct TodoItemList: View {
+    @Environment(\.dismiss) private var dismiss
+    @Query(animation: .default) private var todoItems: [TodoItem]
+    @Environment(\.modelContext) private var context
     
-    @Query var todoItems: [TodoItem]
-    
+    var noTodoItems: Bool {
+        todoItems.isEmpty
+    }
     var body: some View {
-        NavigationStack {
+        ZStack {
+            BlueGradientBackground()
             VStack {
-                List {
-                    ForEach(todoItems) { item in
-                        TodoItemListCell(item)
+                if noTodoItems {
+                    Text("It's an easy life")
+                        .bodyText()
+                        .bold()
+                } else {
+                    List {
+                        ForEach(todoItems) { item in
+                            TodoItemListCell(item: item)
+                            
+                        }
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.clear)
                     }
-
-                    NavigationLink {
-                        NewTodoItem()
-                    } label: {
-                        Label("New Item", systemImage: "plus")
-                    }
-
+                    .scrollContentBackground(.hidden)
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
             }
-            .navigationTitle("All Items")
-            .navigationBarTitleDisplayMode(.inline)
+            .padding(.top, 0)
+            .navigationBarBackButtonHidden()
+            .toolbar { NavigationToolbar(noTodoItems ? "Nothing Here" :"Everything") {
+                dismiss()
+            }}
         }
     }
 }
 
 #Preview {
-    TodoItemList()
-        .modelContainer(PreviewDataProvider.previewContainer)
+    NavigationStack {
+        TodoItemList()
+            .modelContainer(PreviewDataProvider.previewContainer)
+    }
 }

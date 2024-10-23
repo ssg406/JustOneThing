@@ -10,7 +10,7 @@ struct PrimaryToolbar: ToolbarContent {
     
     var body: some ToolbarContent {
         ToolbarItem(placement: .principal) {
-            Text("Just 1 Thing")
+            Text("Just One Thing")
                 .permanentMarker(22.0, relativeTo: .title)
         }
         ToolbarItem(placement: .topBarTrailing) {
@@ -38,27 +38,3 @@ struct PrimaryToolbar: ToolbarContent {
     }
 }
 
-struct NavigationBar: ToolbarContent {
-    
-    let titleText: String
-    let confirmation: () -> Void?
-    let cancellation: () -> Void?
-    
-    init(_ titleText: String, confirmation: @escaping () -> Void?, cancellation: @escaping () -> Void?) {
-        self.titleText = titleText
-        self.confirmation = confirmation
-        self.cancellation = cancellation
-    }
-    
-    var body: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            Text(titleText)
-                .permanentMarker(22.0, relativeTo: .title)
-        }
-        
-    }
-    
-    enum ToolbarAction {
-        case back, confirm
-    }
-}

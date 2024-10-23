@@ -24,4 +24,3 @@ extension TaskDifficulty: AppEnum {
     
     static var typeDisplayRepresentation: TypeDisplayRepresentation = .init(stringLiteral: "Complexity")
 }
-

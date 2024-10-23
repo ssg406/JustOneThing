@@ -10,22 +10,36 @@ import Foundation
 @Model
 class TodoItem {
     
-    // MARK: Properties
-    var name: String
-    var details: String?
-    var completed: Bool
-    var minutes: Int?
-    var dueDate: Date?
-    var location: TaskLocation?
+    // New Properties
+    var name: String = ""
+    // Why is it important that you do this when it comes up?
+    var whyItsImportant: String = ""
+    // What do you need to gather first? Put items here like phone numbers or emails
+    var whatDoYouNeed: String = ""
+    // How complex is this task?
+    var howHardIsIt: TaskDifficulty = TaskDifficulty.low
+    var isDone: Bool = false
+    
+    var id: String = UUID().uuidString
     
     
-    // MARK: Initalizer
-    init(name: String, details: String? = nil, completed: Bool, minutes: Int? = nil, dueDate: Date? = nil, location: TaskLocation? = nil) {
-        self.name = name
-        self.details = details
-        self.completed = completed
-        self.minutes = minutes
-        self.dueDate = dueDate
-        self.location = location
+    init(name: String? = nil, whyItsImportant: String? = nil, whatDoYouNeed: String? = nil, howHardIsIt: TaskDifficulty? = nil, isDone: Bool? = nil) {
+        self.name = name ?? ""
+        self.whyItsImportant = whyItsImportant ?? ""
+        self.whatDoYouNeed = whatDoYouNeed ?? ""
+        self.howHardIsIt = howHardIsIt ?? .low
+        self.isDone = isDone ?? false
     }
 }
+
+extension TodoItem {
+    static let examples: [TodoItem] = [
+        .init(name: "Cancel reservation", whyItsImportant: "I don't want to get charged for a no show", whatDoYouNeed: "Phone number: 885-454-3849", howHardIsIt: .low),
+        .init(name: "Clean counters", whyItsImportant: "I want my counters to be clean and ready for me to cook", whatDoYouNeed: "All-purpose cleaner, a wiping cloth", howHardIsIt: .medium),
+        .init(name: "Clear dining table", whyItsImportant: "I want it to be a nice place to sit and work", howHardIsIt: .low),
+        .init(name: "Reply to mom's email", whyItsImportant: "I should communicate with my mom because I love her", whatDoYouNeed: "Computer or phone", howHardIsIt: .low)
+    ]
+}
+
+
+

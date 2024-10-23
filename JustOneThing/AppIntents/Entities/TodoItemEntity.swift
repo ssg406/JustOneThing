@@ -19,14 +19,14 @@ struct TodoItemEntity: AppEntity {
     }
               
     // Maps to TodoItem
-    var id: UUID
+    var id: String
     var name: String
     var whyItsImportant: String
     var whatDoYouNeed: String
     var howHardIsIt: TaskDifficulty
     var isDone: Bool
     
-    init(id: UUID, name: String, whyItsImportant: String, whatDoYouNeed: String, howHardIsIt: TaskDifficulty, isDone: Bool) {
+    init(id: String, name: String, whyItsImportant: String, whatDoYouNeed: String, howHardIsIt: TaskDifficulty, isDone: Bool) {
         self.id = id
         self.name = name
         self.whyItsImportant = whyItsImportant
@@ -36,7 +36,7 @@ struct TodoItemEntity: AppEntity {
     }
     
     init(_ item: TodoItem) {
-        self.id = item.uuid
+        self.id = item.id
         self.name = item.name
         self.whyItsImportant = item.whyItsImportant
         self.whatDoYouNeed = item.whatDoYouNeed

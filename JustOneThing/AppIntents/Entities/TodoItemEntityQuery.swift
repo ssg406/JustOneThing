@@ -10,31 +10,25 @@ import SwiftData
 
 struct TodoItemEntityQuery: EntityQuery {
     
-    @Dependency(key: C.Keys.modelContainer)
-    var modelContainer: ModelContainer
-    
     func entities(for identifiers: [Entity.ID]) async throws -> [TodoItemEntity] {
-        return fetchTodoItems()
+        return await fetchTodoItems()
             .map(TodoItemEntity.init)
             .filter { identifiers.contains($0.id) }
     }
     
     func suggestedEntities() async throws -> [TodoItemEntity] {
-        fetchTodoItems()
+        await fetchTodoItems()
             .prefix(5)
             .map(TodoItemEntity.init)
             .filter { $0.howHardIsIt == .low }
     }
     
-    func fetchTodoItems() -> [TodoItem] {
-        let context = ModelContext(modelContainer)
-        let fetchDescriptor = FetchDescriptor<TodoItem>()
-        
+    func fetchTodoItems() async -> [TodoItem] {
         do {
-            let todoItems = try context.fetch(fetchDescriptor)
-            return todoItems
+            let items = try await TodoManager.shared.allTodos()
+            return items
         } catch {
-            print("Error fetching from SwiftData")
+            Log.intents.error("(TodoItemEntityQuery) Error fetching [TodoItem]")
             return []
         }
     }
@@ -43,7 +37,7 @@ struct TodoItemEntityQuery: EntityQuery {
 extension TodoItemEntityQuery: EntityStringQuery {
     
     func entities(matching string: String) async throws -> [TodoItemEntity] {
-        fetchTodoItems()
+        await fetchTodoItems()
             .filter { $0.name.contains(string) }
             .map(TodoItemEntity.init)
     }
