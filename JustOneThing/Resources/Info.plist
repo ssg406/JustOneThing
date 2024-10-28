@@ -8,5 +8,9 @@
 		<string>Quicksand-Variable.ttf</string>
 		<string>ShadowsIntoLight-Regular.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>

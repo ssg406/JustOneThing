@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "%@ difficulty" : {
 
     },
@@ -43,6 +40,9 @@
     "Delete" : {
 
     },
+    "Delete Completed Items" : {
+
+    },
     "Done" : {
 
     },
@@ -76,9 +76,6 @@
     "Just One Thing" : {
 
     },
-    "Keep Completed Items" : {
-
-    },
     "Low" : {
 
     },
@@ -107,6 +104,9 @@
 
     },
     "Start One Thing" : {
+
+    },
+    "Sync with iCloud" : {
 
     },
     "Tell your future self why you should do it" : {

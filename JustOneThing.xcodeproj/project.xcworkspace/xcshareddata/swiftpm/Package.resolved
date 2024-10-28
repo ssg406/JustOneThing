@@ -1,0 +1,15 @@
+{
+  "originHash" : "afb29165a933f9571b9bb127af75af0e04cd5148c353daa80a480452cec7fdb5",
+  "pins" : [
+    {
+      "identity" : "linkdetector",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ssg406/LinkDetector.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "12c001d00161b58c77fdf5428014b14727f25340"
+      }
+    }
+  ],
+  "version" : 3
+}

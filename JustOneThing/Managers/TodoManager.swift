@@ -6,12 +6,14 @@
 //
 import SwiftData
 import Foundation
+import CloudKit
 
 enum TodoManagerError: Error {
     case notFound(id: String)
     case saveFailed(id: String)
     case deleteFailed(id: String)
     case updateFailed(id: String)
+    case notImplemented(message: String)
 }
 
 @MainActor
@@ -25,11 +27,21 @@ final class TodoManager: NSObject {
         let schema = Schema([
             TodoItem.self
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         
-#if DEBUG
-        container = PreviewDataProvider.previewContainer
-#else
+        // Set cloudKit database based on user's sync preference
+        let cloudKitDatabase: ModelConfiguration.CloudKitDatabase = if SettingsManager.shared.cloudSync {
+            .private(C.cloudKitContainer)
+        } else {
+            .none
+        }
+        
+        // Create the model configuration
+        let modelConfiguration = ModelConfiguration(
+            isStoredInMemoryOnly: false,
+            cloudKitDatabase: cloudKitDatabase
+        )
+        
+        // Initialize the container
         do {
             container = try ModelContainer(for: schema, configurations: [modelConfiguration])
             Log.todoManager.debug("[TodoManager] container created successfully")
@@ -37,9 +49,8 @@ final class TodoManager: NSObject {
             Log.todoManager.critical("[TodoManager] Could not create ModelContainer: \(error)")
             fatalError("Could not create ModelContainer: \(error)")
         }
-#endif
+
     }
-    
     
     func allTodos() throws -> [TodoItem] {
         Log.todoManager.debug("[TodoManager] Fetching all todos")
@@ -52,7 +63,7 @@ final class TodoManager: NSObject {
     }
     
     func updateTodo(_ todo: TodoItem) throws {
-        // not implemented
+        throw TodoManagerError.notImplemented(message: "Call made to non-implemented method updateTodo")
     }
     
     func deleteTodo(_ todo: TodoItem) throws {

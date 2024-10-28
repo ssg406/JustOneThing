@@ -8,6 +8,7 @@
 struct C {
     
     static let bundleId = "codes.samueljones.JustOneThing"
+    static let cloudKitContainer = bundleId
     
     struct Intent {
     }
@@ -15,6 +16,9 @@ struct C {
     struct Keys {
         static let modelContainer = "ModelContainer"
         static let notificationManager = "NotificationManager"
+        static let cloudSync = "EnableCloudSync"
+        static let deleteCompleted = "DeleteCompletedTodos"
+        static let forceDarkMode = "ForceDarkMode"
     }
     
     struct Notifications {

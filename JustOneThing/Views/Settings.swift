@@ -7,18 +7,19 @@
 import SwiftUI
 
 struct Settings: View {
-    @State private var keepCompletedItems = true
     @Environment(\.dismiss) private var dismiss
     var body: some View {
+        @Bindable var settingsManager = SettingsManager.shared
         ZStack {
             BlueGradientBackground()
             VStack {
                 List {
-                    Toggle("Keep Completed Items", isOn: $keepCompletedItems)
-                        .listRowBackground(Color.clear)
-                        .listRowSeparator(.hidden)
-                        .padding()
-                        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10.0))
+                    Toggle("Delete Completed Items", isOn: $settingsManager.deleteCompleted)
+                        .settingsItemBackground()
+                    
+                    Toggle("Sync with iCloud", isOn: $settingsManager.cloudSync)
+                        .settingsItemBackground()
+                    
                 }
                 .listStyle(.plain)
             }
