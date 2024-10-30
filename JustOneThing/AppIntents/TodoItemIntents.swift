@@ -33,6 +33,7 @@ struct GetTodoItemIntent: AppIntent {
         let result = IntentResultContainer.result(dialog: "Time to get started", view: GetTodoItemIntentResultView(foundItem: item))
         // Donate result to system transcript
         try await IntentDonationManager.shared.donate(intent: GetTodoItemIntent(), result: result)
+        await NotificationManager.shared.scheduleNotification(for: item)
         return result
     }
     
@@ -84,10 +85,10 @@ struct CreateTodoItemIntent: AppIntent {
     var name: String
     
     @Parameter(description: "Why is this important?")
-    var whyIsItImportant: String?
+    var whyIsItImportant: String
     
     @Parameter(description: "What do you need to complete it?")
-    var whatDoYouNeed: String?
+    var whatDoYouNeed: String
     
     @Dependency(key: "ModelContainer")
     var modelContainer: ModelContainer

@@ -11,7 +11,6 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     static let shared = NotificationManager()
     
-    
     private override init() {
         super.init()
         UNUserNotificationCenter.current().delegate = self
@@ -22,7 +21,7 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         Log.notifications.debug("[NotificationManager] Setting notification actions")
         let markDoneAction = UNNotificationAction(identifier: C.Notifications.markDoneAction, title: "Done", options: [], icon: .init(systemImageName: "checkmark"))
         let snoozeAction = UNNotificationAction(identifier: C.Notifications.snoozeAction, title: "Snooze", options: [], icon: .init(systemImageName: "clock"))
-        let todoCategory = UNNotificationCategory(identifier: C.Notifications.category, actions: [markDoneAction, snoozeAction], intentIdentifiers: [], hiddenPreviewsBodyPlaceholder: "", options: .customDismissAction)
+        let todoCategory = UNNotificationCategory(identifier: C.Notifications.category, actions: [markDoneAction, snoozeAction], intentIdentifiers: [], options: .customDismissAction)
         
         UNUserNotificationCenter.current().setNotificationCategories([todoCategory])
     }
@@ -58,7 +57,11 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         content.body = "Did you get it done? You said it was important because \(todo.whyItsImportant)"
         content.categoryIdentifier = C.Notifications.category
         content.userInfo = [C.Notifications.todoId: todo.id]
+        #if DEBUG
+        let delay = 20.0
+        #else
         let delay = SettingsManager.shared.notificationTimeSetting
+        #endif
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay, repeats: false)
         let request = UNNotificationRequest(identifier: "\(C.bundleId)-\(todo.id)", content: content, trigger: trigger)
         

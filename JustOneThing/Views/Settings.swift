@@ -42,7 +42,7 @@ struct Settings: View {
                     if settingsManager.notificationSetting {
                         VStack(alignment: .leading) {
                             Text("Choose a time interval")
-                            Slider(value: $settingsManager.notificationTimeSetting, in: 1800...(60 * 60 * 24), step: (60 * 15))
+                            Slider(value: $settingsManager.notificationTimeSetting, in: (5 * 60)...(60 * 60 * 24), step: (60 * 15))
                             Text(formattedTime)
                                 .quicksand(12, relativeTo: .caption)
                         }

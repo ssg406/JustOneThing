@@ -24,6 +24,7 @@ struct C {
         static let currentStreak = "CurrentStreak"
         static let maxStreak = "MaxStreak"
         static let taskCompletedToday = "TaskCompletedToday"
+        static let appRunCount = "AppRunCount"
     }
     
     struct Notifications {

@@ -57,8 +57,6 @@ struct WorkOnItem: View {
                 }
                 .bodyText()
                 .padding()
-            } else {
-                /*@START_MENU_TOKEN@*/EmptyView()/*@END_MENU_TOKEN@*/
             }
         }
         .navigationBarBackButtonHidden()

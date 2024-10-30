@@ -11,6 +11,7 @@ import SwiftData
 struct AddTodo: View {
     
     @Environment(\.modelContext) private var context
+    @Environment(\.dismiss) private var dismiss
     @State private var model: TodoModel = TodoModel()
     
     var body: some View {
@@ -22,6 +23,7 @@ struct AddTodo: View {
                 if model.validate() {
                     let todoItem = TodoItem(name: model.name, whyItsImportant: model.why, whatDoYouNeed: model.what)
                     context.insert(todoItem)
+                    dismiss()
                 }
             }
             .buttonText()

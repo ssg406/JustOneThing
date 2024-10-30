@@ -6,12 +6,11 @@
 //
 import Foundation
 
-
 @Observable
 final class SettingsManager {
     
     static let shared = SettingsManager()
-    
+
     var deleteSetting: Bool {
         didSet { updateValue(for: C.Keys.deleteCompleted, value: deleteSetting) }
     }
@@ -34,64 +33,68 @@ final class SettingsManager {
         didSet { updateValue(for: C.Keys.currentStreak, value: longestStreak) }
     }
     
+    
+    /// Initializes all settings values from either UserDefaults or NSUbiquitousKeyValueStore, which ever they exist in. If they can't be found in either, they are set to a default value.
     private init() {
         let store = NSUbiquitousKeyValueStore.default
         let defaults = UserDefaults.standard
-        if let delete = store.dictionaryRepresentation[C.Keys.deleteCompleted] as? Bool {
-            Log.settings.debug("[SettingsManager] Delete setting found in cloud")
-            self.deleteSetting = delete
+        
+        if let cloudDelete = store.dictionaryRepresentation[C.Keys.deleteCompleted] as? Bool {
+            // Set value from cloud
+            self.deleteSetting = cloudDelete
+        } else if let defaultsDelete = defaults.object(forKey: C.Keys.deleteCompleted) as? Bool {
+            self.deleteSetting = defaultsDelete
         } else {
-            Log.settings.debug("[SettingsManager] Delete setting found in defaults")
-            self.deleteSetting = defaults.bool(forKey: C.Keys.deleteCompleted)
+            self.deleteSetting = false
         }
         
-        if let dark = store.dictionaryRepresentation[C.Keys.forceDarkMode] as? Bool {
-            Log.settings.debug("[SettingsManager] Dark mode setting found in cloud")
-            self.darkModeSetting = dark
+        if let cloudDark = store.dictionaryRepresentation[C.Keys.forceDarkMode] as? Bool {
+            self.darkModeSetting = cloudDark
+        } else if let defaultsDark = defaults.object(forKey: C.Keys.forceDarkMode) as? Bool {
+            self.darkModeSetting = defaultsDark
         } else {
-            Log.settings.debug("[SettingsManager] Dark mode setting found in defaults")
-            self.darkModeSetting = defaults.bool(forKey: C.Keys.forceDarkMode)
+            self.darkModeSetting = false
         }
         
-        if let cloud = store.dictionaryRepresentation[C.Keys.cloudSync] as? Bool {
-            Log.settings.debug("[SettingsManager] Cloud sync setting found in cloud")
-            self.cloudSyncSetting = cloud
+        
+        if let cloudCloud = store.dictionaryRepresentation[C.Keys.cloudSync] as? Bool {
+            self.cloudSyncSetting = cloudCloud
+        } else if let defaultsCloud = defaults.object(forKey: C.Keys.cloudSync) as? Bool {
+            self.cloudSyncSetting = defaultsCloud
         } else {
-            Log.settings.debug("[SettingsManager] Cloud sync setting found in defaults")
-            self.cloudSyncSetting = defaults.bool(forKey: C.Keys.cloudSync)
+            self.cloudSyncSetting = true
         }
         
-        if let notification = store.dictionaryRepresentation[C.Keys.notificationsEnabled] as? Bool {
-            Log.settings.debug("[SettingsManager] Nofication setting found in cloud")
-            self.notificationSetting = notification
+        if let cloudNotifications = store.dictionaryRepresentation[C.Keys.notificationsEnabled] as? Bool {
+            self.notificationSetting = cloudNotifications
+        } else if let defaultsNotifications = defaults.object(forKey: C.Keys.notificationsEnabled) as? Bool {
+            self.notificationSetting = defaultsNotifications
         } else {
-            Log.settings.debug("[SettingsManager] Notification setting found in defaults")
-            self.notificationSetting = defaults.bool(forKey: C.Keys.notificationsEnabled)
+            self.notificationSetting = true
         }
         
-        if let time = store.dictionaryRepresentation[C.Keys.notificationTime] as? Double {
-            Log.settings.debug("[SettingsManager] Notification time setting found in cloud")
-            self.notificationTimeSetting = time
+        if let cloudTime = store.dictionaryRepresentation[C.Keys.notificationTime] as? Double {
+            self.notificationTimeSetting = cloudTime
+        } else if let defaultsTime = defaults.object(forKey: C.Keys.notificationTime) as? Double {
+            self.notificationTimeSetting = defaultsTime
         } else {
-            Log.settings.debug("[SettingsManager] Notification time setting found in defaults")
-            let storedTimeInterval = defaults.double(forKey: C.Keys.notificationTime)
-            self.notificationTimeSetting = if storedTimeInterval == 0 { 3600 } else { storedTimeInterval }
+            self.notificationTimeSetting = 3600
         }
         
-        if let streak = store.dictionaryRepresentation[C.Keys.currentStreak] as? Int {
-            Log.settings.debug("[SettingsManager] Current streak found in cloud")
-            self.currentStreak = streak
+        if let cloudStreak = store.dictionaryRepresentation[C.Keys.currentStreak] as? Int {
+            self.currentStreak = cloudStreak
+        } else if let defaultsStreak = defaults.object(forKey: C.Keys.currentStreak) as? Int {
+            self.currentStreak = defaultsStreak
         } else {
-            Log.settings.debug("[SettingsManager] Current streak found in defaults")
-            self.currentStreak = defaults.integer(forKey: C.Keys.currentStreak)
+            self.currentStreak = 0
         }
         
-        if let longStreak = store.dictionaryRepresentation[C.Keys.maxStreak] as? Int {
-            Log.settings.debug("[SettingsManager] Max streak found in cloud")
-            self.longestStreak = longStreak
+        if let cloudLongestStreak = store.dictionaryRepresentation[C.Keys.maxStreak] as? Int {
+            self.longestStreak = cloudLongestStreak
+        } else if let defaultsLongestStreak = defaults.object(forKey: C.Keys.maxStreak) as? Int {
+            self.longestStreak = defaultsLongestStreak
         } else {
-            Log.settings.debug("[SettingsManager] Max streak found in defaults")
-            self.longestStreak = defaults.integer(forKey: C.Keys.maxStreak)
+            self.longestStreak = 0
         }
     }
 
@@ -106,6 +109,10 @@ final class SettingsManager {
             longestStreak = currentStreak
         }
         currentStreak = 0
+    }
+    
+    func incrementStreak() {
+        
     }
 }
 

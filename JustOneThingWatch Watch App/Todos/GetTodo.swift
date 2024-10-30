@@ -9,32 +9,54 @@ import SwiftData
 
 struct GetTodo: View {
     
-    @Query private var todos: [TodoItem]
     @Environment(\.dismiss) private var dismiss
-    @State private var selectedTodo: TodoItem?
-    @State private var showAlert: Bool = false
+    @State private var showButtons: Bool = false
+    @State private var showError: Bool = false
+    let todo: TodoItem?
+    
+    init() {
+        todo = try? TodoManager.shared.allTodos().randomElement()
+        showError = todo == nil
+    }
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.blue, .green], startPoint: .topLeading, endPoint: .bottomTrailing)
-            
-            VStack {
-                WordJumblingAnimation(selectedTodo?.name ?? "")
-                    
+            DarkBlueGradientBackground()
+            if let todo = todo {
+                VStack(spacing: 15) {
+                    WordJumblingAnimation(todo.name)
+                        .headlineText()
+                    if showButtons {
+                        VStack {
+                            Button("Go!") {
+                                Task {
+                                    await NotificationManager.shared.scheduleNotification(for: todo)
+                                }
+                            }
+                            .tint(.green)
+                            
+                            Button("No Thanks") {
+                                dismiss()
+                            }
+                            .tint(.yellow)
+                        }
+                        .buttonText()
+                        .transition(.scale)
+                    }
+                }
             }
         }
+        .bodyText()
         .ignoresSafeArea()
         .onAppear {
-            guard let todo = todos.randomElement() else {
-                showAlert = true
-                return
-            }
             Task {
                 try? await Task.sleep(for: .seconds(4))
-                selectedTodo = todo
+                withAnimation {
+                    showButtons = true
+                }
             }
         }
-        .alert("Unable to get todo", isPresented: $showAlert) {
+        .alert("Could not get todo", isPresented: $showError) {
             Button("Okay", role: .cancel) {
                 dismiss()
             }
@@ -44,4 +66,5 @@ struct GetTodo: View {
 
 #Preview {
     GetTodo()
+        .modelContainer(PreviewDataProvider.previewContainer)
 }
