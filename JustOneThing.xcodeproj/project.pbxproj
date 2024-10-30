@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89A721172CD07796008F6E52 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A721162CD07795008F6E52 /* WidgetKit.framework */; };
+		89A721192CD07796008F6E52 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A721182CD07796008F6E52 /* SwiftUI.framework */; };
+		89A721262CD07798008F6E52 /* JustOneThingWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		89B2309E2CC9AD39009992B2 /* LinkDetector in Frameworks */ = {isa = PBXBuildFile; productRef = 89B2309D2CC9AD39009992B2 /* LinkDetector */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,13 @@
 			remoteGlobalIDString = 896899132CA3E61F005DFF98;
 			remoteInfo = JustOneThing;
 		};
+		89A721242CD07798008F6E52 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8968990C2CA3E61F005DFF98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89A721132CD07795008F6E52;
+			remoteInfo = JustOneThingWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,6 +68,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				89A721262CD07798008F6E52 /* JustOneThingWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,15 +92,63 @@
 		896899142CA3E61F005DFF98 /* JustOneThing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustOneThing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		896899262CA3E620005DFF98 /* JustOneThingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustOneThingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		896899302CA3E620005DFF98 /* JustOneThingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustOneThingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JustOneThingWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		89A721162CD07795008F6E52 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		89A721182CD07796008F6E52 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		895536E32CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Managers/LoggingManager.swift,
+				Managers/SettingsManager.swift,
+				Managers/TodoManager.swift,
+				Models/TaskDifficulty.swift,
+				Models/TodoItem.swift,
+				"Resources/Fonts/PermanentMarker-Regular.ttf",
+				"Resources/Fonts/Quicksand-Variable.ttf",
+				"Resources/Fonts/ShadowsIntoLight-Regular.ttf",
+				Utilities/C.swift,
+				Views/Components/BlueGradientBackground.swift,
+				Views/Components/WordJumblingAnimation.swift,
+				Views/ViewModifiers/BodyText.swift,
+				Views/ViewModifiers/ButtonText.swift,
+				Views/ViewModifiers/CustomFontModifiers.swift,
+				Views/ViewModifiers/CustomFontRelativeTo.swift,
+				Views/ViewModifiers/HeadlineText.swift,
+				Views/ViewModifiers/LargeTitleText.swift,
+				Views/ViewModifiers/ListRowBackground.swift,
+			);
+			target = 895536B52CCF914000C3288B /* JustOneThingWatch Watch App */;
+		};
+		895536E42CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/TaskDifficulty.swift,
+			);
+			target = 895536C42CCF914300C3288B /* JustOneThingWatch Watch AppTests */;
+		};
+		895536E52CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Models/TaskDifficulty.swift,
+			);
+			target = 895536CE2CCF914300C3288B /* JustOneThingWatch Watch AppUITests */;
+		};
 		8972B75A2CC35D44000C506C /* Exceptions for "JustOneThing" folder in "JustOneThing" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Resources/Info.plist,
 			);
 			target = 896899132CA3E61F005DFF98 /* JustOneThing */;
+		};
+		89A7212A2CD07798008F6E52 /* Exceptions for "JustOneThingWidget" folder in "JustOneThingWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 89A721132CD07795008F6E52 /* JustOneThingWidgetExtension */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -113,6 +172,9 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				8972B75A2CC35D44000C506C /* Exceptions for "JustOneThing" folder in "JustOneThing" target */,
+				895536E32CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch App" target */,
+				895536E42CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppTests" target */,
+				895536E52CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppUITests" target */,
 			);
 			path = JustOneThing;
 			sourceTree = "<group>";
@@ -125,6 +187,14 @@
 		896899332CA3E620005DFF98 /* JustOneThingUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = JustOneThingUITests;
+			sourceTree = "<group>";
+		};
+		89A7211A2CD07796008F6E52 /* JustOneThingWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				89A7212A2CD07798008F6E52 /* Exceptions for "JustOneThingWidget" folder in "JustOneThingWidgetExtension" target */,
+			);
+			path = JustOneThingWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -173,6 +243,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89A721112CD07795008F6E52 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89A721192CD07796008F6E52 /* SwiftUI.framework in Frameworks */,
+				89A721172CD07796008F6E52 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -185,6 +264,8 @@
 				895536B72CCF914100C3288B /* JustOneThingWatch Watch App */,
 				895536C82CCF914300C3288B /* JustOneThingWatch Watch AppTests */,
 				895536D22CCF914300C3288B /* JustOneThingWatch Watch AppUITests */,
+				89A7211A2CD07796008F6E52 /* JustOneThingWidget */,
+				89A721152CD07795008F6E52 /* Frameworks */,
 				896899152CA3E61F005DFF98 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,8 +279,18 @@
 				895536B62CCF914000C3288B /* JustOneThingWatch Watch App.app */,
 				895536C52CCF914300C3288B /* JustOneThingWatch Watch AppTests.xctest */,
 				895536CF2CCF914300C3288B /* JustOneThingWatch Watch AppUITests.xctest */,
+				89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		89A721152CD07795008F6E52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89A721162CD07795008F6E52 /* WidgetKit.framework */,
+				89A721182CD07796008F6E52 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +378,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				89A721252CD07798008F6E52 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				896899162CA3E61F005DFF98 /* JustOneThing */,
@@ -345,6 +437,28 @@
 			productReference = 896899302CA3E620005DFF98 /* JustOneThingUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		89A721132CD07795008F6E52 /* JustOneThingWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89A721292CD07798008F6E52 /* Build configuration list for PBXNativeTarget "JustOneThingWidgetExtension" */;
+			buildPhases = (
+				89A721102CD07795008F6E52 /* Sources */,
+				89A721112CD07795008F6E52 /* Frameworks */,
+				89A721122CD07795008F6E52 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				89A7211A2CD07796008F6E52 /* JustOneThingWidget */,
+			);
+			name = JustOneThingWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = JustOneThingWidgetExtension;
+			productReference = 89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -352,7 +466,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					895536B52CCF914000C3288B = {
@@ -376,6 +490,9 @@
 					8968992F2CA3E620005DFF98 = {
 						CreatedOnToolsVersion = 16.0;
 						TestTargetID = 896899132CA3E61F005DFF98;
+					};
+					89A721132CD07795008F6E52 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 				};
 			};
@@ -402,6 +519,7 @@
 				895536B52CCF914000C3288B /* JustOneThingWatch Watch App */,
 				895536C42CCF914300C3288B /* JustOneThingWatch Watch AppTests */,
 				895536CE2CCF914300C3288B /* JustOneThingWatch Watch AppUITests */,
+				89A721132CD07795008F6E52 /* JustOneThingWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -443,6 +561,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8968992E2CA3E620005DFF98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89A721122CD07795008F6E52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -494,6 +619,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		89A721102CD07795008F6E52 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -517,6 +649,11 @@
 			target = 896899132CA3E61F005DFF98 /* JustOneThing */;
 			targetProxy = 896899312CA3E620005DFF98 /* PBXContainerItemProxy */;
 		};
+		89A721252CD07798008F6E52 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89A721132CD07795008F6E52 /* JustOneThingWidgetExtension */;
+			targetProxy = 89A721242CD07798008F6E52 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -531,6 +668,7 @@
 				DEVELOPMENT_TEAM = 9G643QLW3P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JustOneThingWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
@@ -561,6 +699,7 @@
 				DEVELOPMENT_TEAM = 9G643QLW3P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "JustOneThingWatch-Watch-App-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWatch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
@@ -913,6 +1052,62 @@
 			};
 			name = Release;
 		};
+		89A721272CD07798008F6E52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G643QLW3P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustOneThingWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = codes.samueljones.JustOneThing.JustOneThingWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		89A721282CD07798008F6E52 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9G643QLW3P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JustOneThingWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = codes.samueljones.JustOneThing.JustOneThingWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -975,6 +1170,15 @@
 			buildConfigurations = (
 				896899412CA3E620005DFF98 /* Debug */,
 				896899422CA3E620005DFF98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89A721292CD07798008F6E52 /* Build configuration list for PBXNativeTarget "JustOneThingWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89A721272CD07798008F6E52 /* Debug */,
+				89A721282CD07798008F6E52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

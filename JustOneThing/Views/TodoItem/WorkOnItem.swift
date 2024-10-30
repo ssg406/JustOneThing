@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SwiftData
+import AppIntents
 
 struct WorkOnItem: View {
     @Environment(\.dismiss) private var dismiss

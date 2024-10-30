@@ -10,7 +10,9 @@ struct SettingsItemBackground: ViewModifier {
     func body(content: Content) -> some View {
         content
             .listRowBackground(Color.clear)
+        #if !os(watchOS)
             .listRowSeparator(.hidden)
+        #endif
             .padding()
             .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10.0))
     }

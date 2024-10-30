@@ -5,13 +5,22 @@
 //  Created by Samuel Jones on 10/28/24.
 //
 import Foundation
-import CloudKit
 
+@Observable
 final class StreakManager {
+        
+    var currentStreak: KeyValueStoredObject<Int>
+    var maxStreak: KeyValueStoredObject<Int>
     
-    static let shared = StreakManager()
-    private init() { }
+    init() {
+        currentStreak = .init(from: C.Keys.currentStreak)
+        maxStreak = .init(from: C.Keys.maxStreak)
+    }
     
+    func endStreak() {
+
+    }
     
 }
+
 

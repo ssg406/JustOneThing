@@ -27,7 +27,6 @@ struct TodoItemList: View {
                     List {
                         ForEach(todoItems) { item in
                             TodoItemListCell(item: item)
-                            
                         }
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)

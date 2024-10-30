@@ -19,6 +19,11 @@ struct C {
         static let cloudSync = "EnableCloudSync"
         static let deleteCompleted = "DeleteCompletedTodos"
         static let forceDarkMode = "ForceDarkMode"
+        static let notificationsEnabled = "NotificationsEnabled"
+        static let notificationTime = "NotificationTime"
+        static let currentStreak = "CurrentStreak"
+        static let maxStreak = "MaxStreak"
+        static let taskCompletedToday = "TaskCompletedToday"
     }
     
     struct Notifications {

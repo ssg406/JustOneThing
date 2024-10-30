@@ -19,6 +19,9 @@
     "Back" : {
 
     },
+    "Choose a time interval" : {
+
+    },
     "Complexity" : {
 
     },
@@ -47,6 +50,12 @@
 
     },
     "Edit" : {
+
+    },
+    "Enable Checkup Notification" : {
+
+    },
+    "Force Dark Mode" : {
 
     },
     "Get a todo item from the list to start work on" : {

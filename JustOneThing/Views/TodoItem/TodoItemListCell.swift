@@ -43,11 +43,13 @@ struct TodoItemListCell: View {
                 Button("Done") {
                     withAnimation {
                         item.isDone.toggle()
+                        if SettingsManager.shared.deleteSetting {
+                            context.delete(item)
+                        }
                     }
                 }
                 .buttonStyle(.borderless)
                 Button("Delete") {
-                    print("delete clicked")
                     withAnimation {
                         context.delete(item)
                     }

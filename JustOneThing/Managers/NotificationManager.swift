@@ -9,12 +9,6 @@ import UserNotifications
 
 final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
-    #if DEBUG
-    private let notificationDelay: TimeInterval = 15
-    #else
-    private let notificationDelay: TimeInterval = 60 * 60
-    #endif
-    
     static let shared = NotificationManager()
     
     
@@ -43,6 +37,9 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func scheduleNotification(for todo: TodoItem) async {
+        guard SettingsManager.shared.notificationSetting else {
+            return
+        }
         // Get current permissions
         let settings = await UNUserNotificationCenter.current().notificationSettings()
         if settings.authorizationStatus != .authorized  {
@@ -55,13 +52,14 @@ final class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
             return
         }
         
-        // Set content and schedule notification for 1hr
+        // Set content and schedule notification
         let content = UNMutableNotificationContent()
         content.title = todo.name
         content.body = "Did you get it done? You said it was important because \(todo.whyItsImportant)"
         content.categoryIdentifier = C.Notifications.category
         content.userInfo = [C.Notifications.todoId: todo.id]
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: notificationDelay, repeats: false)
+        let delay = SettingsManager.shared.notificationTimeSetting
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay, repeats: false)
         let request = UNNotificationRequest(identifier: "\(C.bundleId)-\(todo.id)", content: content, trigger: trigger)
         
         do {

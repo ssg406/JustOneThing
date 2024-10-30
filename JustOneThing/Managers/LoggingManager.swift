@@ -15,4 +15,5 @@ struct Log {
     static let intents = Logger(subsystem: subsystem, category: "[Intents]")
     static let settings = Logger(subsystem: subsystem, category: "[Settings]")
     static let streak = Logger(subsystem: subsystem, category: "[Streak]")
+    static let watch = Logger(subsystem: subsystem, category: "[Watch]")
 }

@@ -10,7 +10,28 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         
-        VStack {
+        NavigationStack {
+            ZStack {
+                BlueGradientBackground()
+                VStack {
+                    
+                    NavigationLink {
+                        AddTodo()
+                    } label: {
+                        Label("Add One", systemImage: C.Img.squarePlus)
+                    }
+                    .buttonText()
+                    
+                    NavigationLink {
+                        AddTodo()
+                    } label: {
+                        Label("Start One", systemImage: C.Img.runner)
+                    }
+                    .buttonText()
+
+                }
+
+            }
 
         }
 

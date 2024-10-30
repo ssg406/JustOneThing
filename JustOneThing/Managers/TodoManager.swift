@@ -29,7 +29,7 @@ final class TodoManager: NSObject {
         ])
         
         // Set cloudKit database based on user's sync preference
-        let cloudKitDatabase: ModelConfiguration.CloudKitDatabase = if SettingsManager.shared.cloudSync {
+        let cloudKitDatabase: ModelConfiguration.CloudKitDatabase = if SettingsManager.shared.cloudSyncSetting {
             .private(C.cloudKitContainer)
         } else {
             .none
@@ -87,6 +87,9 @@ final class TodoManager: NSObject {
             let todo = try todoByID(id: id)
             todo.isDone = true
             Log.todoManager.debug("[TodoManager] Marked todo as complete: \(todo.id)")
+            if SettingsManager.shared.deleteSetting {
+                container.mainContext.delete(todo)
+            }
             try container.mainContext.save()
         } catch {
             Log.todoManager.error("[TodoManager] Error marking todo as complete: \(error.localizedDescription)")
