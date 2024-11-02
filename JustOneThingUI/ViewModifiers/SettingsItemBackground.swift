@@ -6,8 +6,8 @@
 //
 import SwiftUI
 
-struct SettingsItemBackground: ViewModifier {
-    func body(content: Content) -> some View {
+public struct SettingsItemBackground: ViewModifier {
+    public func body(content: Content) -> some View {
         content
             .listRowBackground(Color.clear)
         #if !os(watchOS)
@@ -18,8 +18,8 @@ struct SettingsItemBackground: ViewModifier {
     }
 }
 
-extension View {
-    public func settingsItemBackground() -> some View {
+public extension View {
+    func settingsItemBackground() -> some View {
         modifier(SettingsItemBackground())
     }
 }

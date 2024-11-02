@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		894373C82CD5B86D007897D9 /* JustOneThingUI in Frameworks */ = {isa = PBXBuildFile; productRef = 894373C72CD5B86D007897D9 /* JustOneThingUI */; };
+		894373CA2CD5B86E007897D9 /* JustOneThingUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 894373C72CD5B86D007897D9 /* JustOneThingUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		894373CC2CD5B885007897D9 /* JustOneThingUI in Frameworks */ = {isa = PBXBuildFile; productRef = 894373CB2CD5B885007897D9 /* JustOneThingUI */; };
+		894373CE2CD5B885007897D9 /* JustOneThingUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 894373CB2CD5B885007897D9 /* JustOneThingUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		894373D02CD5B891007897D9 /* JustOneThingUI in Frameworks */ = {isa = PBXBuildFile; productRef = 894373CF2CD5B891007897D9 /* JustOneThingUI */; };
+		894373D22CD5B891007897D9 /* JustOneThingUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 894373CF2CD5B891007897D9 /* JustOneThingUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		89A721172CD07796008F6E52 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A721162CD07795008F6E52 /* WidgetKit.framework */; };
 		89A721192CD07796008F6E52 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A721182CD07796008F6E52 /* SwiftUI.framework */; };
 		89A721262CD07798008F6E52 /* JustOneThingWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -52,6 +58,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		894373C92CD5B86D007897D9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				894373CA2CD5B86E007897D9 /* JustOneThingUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		894373CD2CD5B885007897D9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				894373CE2CD5B885007897D9 /* JustOneThingUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		894373D12CD5B891007897D9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				894373D22CD5B891007897D9 /* JustOneThingUI in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8980F1812CC0C188003A0872 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,6 +125,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8912662D2CD4B3EA00EA0280 /* JustOneThing.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JustOneThing.xcodeproj; path = JustOneThing/Resources/JustOneThing.xcodeproj; sourceTree = SOURCE_ROOT; };
+		894370482CD4C42B007897D9 /* JustOneThing.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = JustOneThing.xcodeproj; sourceTree = "<group>"; };
+		894373C62CD5B6A0007897D9 /* JustOneThingUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JustOneThingUI; sourceTree = "<group>"; };
 		895536B62CCF914000C3288B /* JustOneThingWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JustOneThingWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		895536C52CCF914300C3288B /* JustOneThingWatch Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JustOneThingWatch Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		895536CF2CCF914300C3288B /* JustOneThingWatch Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "JustOneThingWatch Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +140,28 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		891266522CD4BF1F00EA0280 /* Exceptions for "JustOneThingTests" folder in "JustOneThingTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				JustOneThingTests.swift,
+			);
+			target = 896899252CA3E620005DFF98 /* JustOneThingTests */;
+		};
+		8941E2262CD3734000D5F996 /* Exceptions for "JustOneThing" folder in "JustOneThingWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppIntents/TodoItemIntentResultView.swift,
+				AppIntents/TodoItemIntents.swift,
+				Managers/LoggingManager.swift,
+				Managers/NotificationManager.swift,
+				Managers/SettingsManager.swift,
+				Managers/TodoManager.swift,
+				Models/TaskDifficulty.swift,
+				Models/TodoItem.swift,
+				Utilities/C.swift,
+			);
+			target = 89A721132CD07795008F6E52 /* JustOneThingWidgetExtension */;
+		};
 		895536E32CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch App" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -107,20 +171,8 @@
 				Managers/TodoManager.swift,
 				Models/TaskDifficulty.swift,
 				Models/TodoItem.swift,
-				"Resources/Fonts/PermanentMarker-Regular.ttf",
-				"Resources/Fonts/Quicksand-Variable.ttf",
-				"Resources/Fonts/ShadowsIntoLight-Regular.ttf",
 				Utilities/C.swift,
 				Utilities/PreviewDataProvider.swift,
-				Views/Components/BlueGradientBackground.swift,
-				Views/Components/WordJumblingAnimation.swift,
-				Views/ViewModifiers/BodyText.swift,
-				Views/ViewModifiers/ButtonText.swift,
-				Views/ViewModifiers/CustomFontModifiers.swift,
-				Views/ViewModifiers/CustomFontRelativeTo.swift,
-				Views/ViewModifiers/HeadlineText.swift,
-				Views/ViewModifiers/LargeTitleText.swift,
-				Views/ViewModifiers/ListRowBackground.swift,
 			);
 			target = 895536B52CCF914000C3288B /* JustOneThingWatch Watch App */;
 		};
@@ -130,13 +182,6 @@
 				Models/TaskDifficulty.swift,
 			);
 			target = 895536C42CCF914300C3288B /* JustOneThingWatch Watch AppTests */;
-		};
-		895536E52CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Models/TaskDifficulty.swift,
-			);
-			target = 895536CE2CCF914300C3288B /* JustOneThingWatch Watch AppUITests */;
 		};
 		8972B75A2CC35D44000C506C /* Exceptions for "JustOneThing" folder in "JustOneThing" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
@@ -155,19 +200,27 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		895536B72CCF914100C3288B /* JustOneThingWatch Watch App */ = {
+		891266502CD4BF1F00EA0280 /* JustOneThingTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "JustOneThingWatch Watch App";
+			exceptions = (
+				891266522CD4BF1F00EA0280 /* Exceptions for "JustOneThingTests" folder in "JustOneThingTests" target */,
+			);
+			path = JustOneThingTests;
 			sourceTree = "<group>";
 		};
-		895536C82CCF914300C3288B /* JustOneThingWatch Watch AppTests */ = {
+		895536B72CCF914100C3288B /* JustOneThingWatchApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "JustOneThingWatch Watch AppTests";
+			path = JustOneThingWatchApp;
 			sourceTree = "<group>";
 		};
-		895536D22CCF914300C3288B /* JustOneThingWatch Watch AppUITests */ = {
+		895536C82CCF914300C3288B /* JustOneThingWatchApp Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "JustOneThingWatch Watch AppUITests";
+			path = "JustOneThingWatchApp Tests";
+			sourceTree = "<group>";
+		};
+		895536D22CCF914300C3288B /* JustOneThingWatchApp UITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "JustOneThingWatchApp UITests";
 			sourceTree = "<group>";
 		};
 		896899162CA3E61F005DFF98 /* JustOneThing */ = {
@@ -176,14 +229,9 @@
 				8972B75A2CC35D44000C506C /* Exceptions for "JustOneThing" folder in "JustOneThing" target */,
 				895536E32CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch App" target */,
 				895536E42CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppTests" target */,
-				895536E52CCF91EE00C3288B /* Exceptions for "JustOneThing" folder in "JustOneThingWatch Watch AppUITests" target */,
+				8941E2262CD3734000D5F996 /* Exceptions for "JustOneThing" folder in "JustOneThingWidgetExtension" target */,
 			);
 			path = JustOneThing;
-			sourceTree = "<group>";
-		};
-		896899292CA3E620005DFF98 /* JustOneThingTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JustOneThingTests;
 			sourceTree = "<group>";
 		};
 		896899332CA3E620005DFF98 /* JustOneThingUITests */ = {
@@ -206,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				894373CC2CD5B885007897D9 /* JustOneThingUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				894373C82CD5B86D007897D9 /* JustOneThingUI in Frameworks */,
 				89B2309E2CC9AD39009992B2 /* LinkDetector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A721192CD07796008F6E52 /* SwiftUI.framework in Frameworks */,
+				894373D02CD5B891007897D9 /* JustOneThingUI in Frameworks */,
 				89A721172CD07796008F6E52 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,18 +308,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		891266302CD4B3EA00EA0280 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		894370712CD4C42B007897D9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8968990B2CA3E61F005DFF98 = {
 			isa = PBXGroup;
 			children = (
+				894373C62CD5B6A0007897D9 /* JustOneThingUI */,
 				896899162CA3E61F005DFF98 /* JustOneThing */,
-				896899292CA3E620005DFF98 /* JustOneThingTests */,
-				896899332CA3E620005DFF98 /* JustOneThingUITests */,
-				895536B72CCF914100C3288B /* JustOneThingWatch Watch App */,
-				895536C82CCF914300C3288B /* JustOneThingWatch Watch AppTests */,
-				895536D22CCF914300C3288B /* JustOneThingWatch Watch AppUITests */,
+				895536B72CCF914100C3288B /* JustOneThingWatchApp */,
 				89A7211A2CD07796008F6E52 /* JustOneThingWidget */,
 				89A721152CD07795008F6E52 /* Frameworks */,
 				896899152CA3E61F005DFF98 /* Products */,
+				896899332CA3E620005DFF98 /* JustOneThingUITests */,
+				891266502CD4BF1F00EA0280 /* JustOneThingTests */,
+				895536C82CCF914300C3288B /* JustOneThingWatchApp Tests */,
+				895536D22CCF914300C3288B /* JustOneThingWatchApp UITests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,16 +371,18 @@
 				895536B22CCF914000C3288B /* Sources */,
 				895536B32CCF914000C3288B /* Frameworks */,
 				895536B42CCF914000C3288B /* Resources */,
+				894373CD2CD5B885007897D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				895536B72CCF914100C3288B /* JustOneThingWatch Watch App */,
+				895536B72CCF914100C3288B /* JustOneThingWatchApp */,
 			);
 			name = "JustOneThingWatch Watch App";
 			packageProductDependencies = (
+				894373CB2CD5B885007897D9 /* JustOneThingUI */,
 			);
 			productName = "JustOneThingWatch Watch App";
 			productReference = 895536B62CCF914000C3288B /* JustOneThingWatch Watch App.app */;
@@ -334,7 +402,7 @@
 				895536C72CCF914300C3288B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				895536C82CCF914300C3288B /* JustOneThingWatch Watch AppTests */,
+				895536C82CCF914300C3288B /* JustOneThingWatchApp Tests */,
 			);
 			name = "JustOneThingWatch Watch AppTests";
 			packageProductDependencies = (
@@ -357,7 +425,7 @@
 				895536D12CCF914300C3288B /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				895536D22CCF914300C3288B /* JustOneThingWatch Watch AppUITests */,
+				895536D22CCF914300C3288B /* JustOneThingWatchApp UITests */,
 			);
 			name = "JustOneThingWatch Watch AppUITests";
 			packageProductDependencies = (
@@ -376,6 +444,7 @@
 				899A3B062CBF2655003685C6 /* Embed ExtensionKit Extensions */,
 				8980F1812CC0C188003A0872 /* Embed Watch Content */,
 				8980F1A72CC0C1BC003A0872 /* Embed Foundation Extensions */,
+				894373C92CD5B86D007897D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,6 +457,7 @@
 			name = JustOneThing;
 			packageProductDependencies = (
 				89B2309D2CC9AD39009992B2 /* LinkDetector */,
+				894373C72CD5B86D007897D9 /* JustOneThingUI */,
 			);
 			productName = JustOneThing;
 			productReference = 896899142CA3E61F005DFF98 /* JustOneThing.app */;
@@ -405,9 +475,6 @@
 			);
 			dependencies = (
 				896899282CA3E620005DFF98 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				896899292CA3E620005DFF98 /* JustOneThingTests */,
 			);
 			name = JustOneThingTests;
 			packageProductDependencies = (
@@ -430,6 +497,7 @@
 				896899322CA3E620005DFF98 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				891266502CD4BF1F00EA0280 /* JustOneThingTests */,
 				896899332CA3E620005DFF98 /* JustOneThingUITests */,
 			);
 			name = JustOneThingUITests;
@@ -446,6 +514,7 @@
 				89A721102CD07795008F6E52 /* Sources */,
 				89A721112CD07795008F6E52 /* Frameworks */,
 				89A721122CD07795008F6E52 /* Resources */,
+				894373D12CD5B891007897D9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -456,6 +525,7 @@
 			);
 			name = JustOneThingWidgetExtension;
 			packageProductDependencies = (
+				894373CF2CD5B891007897D9 /* JustOneThingUI */,
 			);
 			productName = JustOneThingWidgetExtension;
 			productReference = 89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */;
@@ -513,6 +583,16 @@
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 896899152CA3E61F005DFF98 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 891266302CD4B3EA00EA0280 /* Products */;
+					ProjectRef = 8912662D2CD4B3EA00EA0280 /* JustOneThing.xcodeproj */;
+				},
+				{
+					ProductGroup = 894370712CD4C42B007897D9 /* Products */;
+					ProjectRef = 894370482CD4C42B007897D9 /* JustOneThing.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				896899132CA3E61F005DFF98 /* JustOneThing */,
@@ -1201,6 +1281,18 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		894373C72CD5B86D007897D9 /* JustOneThingUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JustOneThingUI;
+		};
+		894373CB2CD5B885007897D9 /* JustOneThingUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JustOneThingUI;
+		};
+		894373CF2CD5B891007897D9 /* JustOneThingUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JustOneThingUI;
+		};
 		89B2309D2CC9AD39009992B2 /* LinkDetector */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 89B2309C2CC9AD38009992B2 /* XCRemoteSwiftPackageReference "LinkDetector" */;

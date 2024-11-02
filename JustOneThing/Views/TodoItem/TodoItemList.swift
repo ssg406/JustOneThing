@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SwiftData
+import JustOneThingUI
 
 struct TodoItemList: View {
     @Environment(\.dismiss) private var dismiss
@@ -16,13 +17,13 @@ struct TodoItemList: View {
         todoItems.isEmpty
     }
     var body: some View {
+
         ZStack {
-            BlueGradientBackground()
+            GradientBackground(.blueGreen)
             VStack {
                 if noTodoItems {
                     Text("It's an easy life")
-                        .bodyText()
-                        .bold()
+                        .quicksandHeadline()
                 } else {
                     List {
                         ForEach(todoItems) { item in

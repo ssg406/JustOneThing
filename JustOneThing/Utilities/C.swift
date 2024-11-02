@@ -13,6 +13,10 @@ struct C {
     struct Intent {
     }
     
+    struct Ext {
+        static let widgetKind = "JustOneThingWidget"
+    }
+    
     struct Keys {
         static let modelContainer = "ModelContainer"
         static let notificationManager = "NotificationManager"

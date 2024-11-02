@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct JustOneThingWidgetBundle: WidgetBundle {
     var body: some Widget {
-        JustOneThingWidget()
+        JustOneWidget()
         JustOneThingWidgetControl()
     }
 }

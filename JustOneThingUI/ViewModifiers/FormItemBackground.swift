@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct FormItemBackground: ViewModifier {
-    func body(content: Content) -> some View {
+public struct FormItemBackground: ViewModifier {
+    public func body(content: Content) -> some View {
         content
             .padding()
             .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 15.0))
     }
 }
 
-extension View {
+public extension View {
     func formItemBackground() -> some View {
         self.modifier(FormItemBackground())
     }

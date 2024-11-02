@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import LinkDetector
+import JustOneThingUI
 
 struct TodoItemDetail: View {
 
@@ -25,7 +26,7 @@ struct TodoItemDetail: View {
                             Text("Why You Said it Was Important")
                             Spacer()
                         }
-                        .headlineText()
+                        .quicksandHeadline()
                         Text(todoItem.whyItsImportant)
                     }
                 }
@@ -37,14 +38,14 @@ struct TodoItemDetail: View {
                         Text("What you said you need")
                         Spacer()
                     }
-                    .headlineText()
+                    .quicksandHeadline()
                     
                     Text(LinkDetector.detectLinks(in: todoItem.whatDoYouNeed))
                 }
             }
         }
         .padding()
-        .bodyText()
+        .quicksandBody()
         
     }
 }

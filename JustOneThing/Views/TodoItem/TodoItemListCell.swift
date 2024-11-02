@@ -14,7 +14,7 @@ struct TodoItemListCell: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(item.name)
-                .headlineText()
+                .quicksandHeadline()
             
             if !item.whyItsImportant.isEmpty {
                 HStack {
@@ -64,7 +64,6 @@ struct TodoItemListCell: View {
             .tint(.primary)
             .textCase(.uppercase)
             .fontWeight(.semibold)
-            .bodyText()
             .padding(.top, 1)
                 
         }
@@ -74,7 +73,7 @@ struct TodoItemListCell: View {
         .sheet(isPresented: $showEditSheet) {
             EditTodoItem(model: item)
         }
-        .bodyText()
+        .quicksandBody()
         .opacity(item.isDone ? 0.3 : 1)
 
     }

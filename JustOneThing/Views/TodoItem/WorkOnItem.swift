@@ -7,13 +7,14 @@
 import SwiftUI
 import SwiftData
 import AppIntents
+import JustOneThingUI
 
 struct WorkOnItem: View {
     @Environment(\.dismiss) private var dismiss
     let todo: TodoItem?
     @State private var showResultView: Bool = false
     @State private var showError: Bool = false
-
+    
     init() {
         todo = try? TodoManager.shared.allTodos().randomElement()
         if todo == nil {
@@ -22,12 +23,13 @@ struct WorkOnItem: View {
     }
     
     var body: some View {
-        ZStack {
-            OrangeGradientBackground()
-            if let todo = todo {
+        
+        if let todo = todo {
+            ZStack {
+                GradientBackground(.orangeRed)
                 VStack(spacing: 15) {
                     WordJumblingAnimation(todo.name, maxCycles: 8)
-                        .permanentMarker(26, relativeTo: .title)
+                        .permanentMarkerTitle()
                     
                     if showResultView {
                         VStack {
@@ -55,25 +57,28 @@ struct WorkOnItem: View {
                         .transition(.scale)
                     }
                 }
-                .bodyText()
+                .quicksandBody()
                 .padding()
-            }
-        }
-        .navigationBarBackButtonHidden()
-        .toolbar { NavigationToolbar("Just One Thing") { dismiss() } }
-        .onAppear {
-            Task {
-                try? await Task.sleep(for: .seconds(4))
-                withAnimation() {
-                    showResultView = true
+                .navigationBarBackButtonHidden()
+                .toolbar { NavigationToolbar("Just One Thing") { dismiss() } }
+                .onAppear {
+                    Task {
+                        try? await Task.sleep(for: .seconds(4))
+                        withAnimation() {
+                            showResultView = true
+                        }
+                    }
+                }
+                .alert("Unable to load one thing...", isPresented: $showError) {
+                    Button("OK", role: .cancel) {
+                        dismiss()
+                    }
                 }
             }
+
+            
         }
-        .alert("Unable to load one thing...", isPresented: $showError) {
-            Button("OK", role: .cancel) {
-                dismiss()
-            }
-        }
+        
     }
 }
 

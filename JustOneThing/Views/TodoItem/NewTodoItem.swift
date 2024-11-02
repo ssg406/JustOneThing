@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SwiftData
+import JustOneThingUI
 
 struct NewTodoItem: View {
     
@@ -18,14 +19,15 @@ struct NewTodoItem: View {
     }
 
     var body: some View {
+  
         ZStack {
-            BlueGradientBackground()
+            GradientBackground(.blueGreen)
             VStack {
                 TextField("Give it a name", text: $model.name)
                     .textInputAutocapitalization(.words)
                     .formItemBackground()
                 
-
+                
                 TextField("Tell your future self why you should do it", text: $model.whyItsImportant, axis: .vertical)
                     .lineLimit(3, reservesSpace: true)
                     .formItemBackground()
@@ -44,13 +46,12 @@ struct NewTodoItem: View {
                 .buttonText()
                 .formItemBackground()
             }
-            .bodyText()
+            .quicksandBody()
             .tint(.black)
             .padding(.horizontal)
+            .navigationBarBackButtonHidden()
+            .toolbar { NavigationToolbar("New Item") { dismiss() }}
         }
-        .navigationBarBackButtonHidden()
-        .toolbar { NavigationToolbar("New Item") { dismiss() }}
-
     }
     
     private func addTodoItem() {

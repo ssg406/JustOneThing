@@ -5,6 +5,7 @@
 //  Created by Samuel Jones on 10/21/24.
 //
 import SwiftUI
+import JustOneThingUI
 
 struct NavigationToolbar: ToolbarContent {
     
@@ -19,7 +20,7 @@ struct NavigationToolbar: ToolbarContent {
     var body: some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Text(titleText)
-                .permanentMarker(22.0, relativeTo: .title)
+                .permanentMarkerTitle3()
         }
         
         ToolbarItem(placement: .cancellationAction) {

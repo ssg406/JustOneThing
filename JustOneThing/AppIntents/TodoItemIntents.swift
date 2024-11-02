@@ -49,6 +49,7 @@ struct GetTodoItemIntent: AppIntent {
     var modelContainer: ModelContainer
 }
 
+
 struct CreateTodoItemIntent: AppIntent {
     static var title: LocalizedStringResource { "Create a Todo Item" }
     static var description: IntentDescription? { "Create a new todo item to add to the list" }

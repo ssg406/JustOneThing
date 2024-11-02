@@ -5,6 +5,7 @@
 //  Created by Samuel Jones on 10/20/24.
 //
 import SwiftUI
+import JustOneThingUI
 
 struct TaskDifficultyPicker: View {
     @Binding var selectedDifficulty: TaskDifficulty
@@ -14,7 +15,7 @@ struct TaskDifficultyPicker: View {
         HStack {
             ForEach(TaskDifficulty.allCases, id: \.self) { difficulty in
                 Text(difficulty.rawValue)
-                    .headlineText()
+                    .quicksandHeadline()
                     .padding()
                     .if(selectedDifficulty == difficulty) { content in
                         content
@@ -31,7 +32,7 @@ struct TaskDifficultyPicker: View {
         }
         .background(color ?? Color.clear, in: RoundedRectangle(cornerRadius: 20.0))
         .frame(maxWidth: .infinity)
-        .bodyText()
+        .quicksandBody()
     }
 }
 

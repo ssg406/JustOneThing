@@ -5,13 +5,14 @@
 //  Created by Samuel Jones on 10/21/24.
 //
 import SwiftUI
+import JustOneThingUI
 
-struct PrimaryToolbar: ToolbarContent {
+public struct PrimaryToolbar: ToolbarContent {
     
-    var body: some ToolbarContent {
+    public var body: some ToolbarContent {
         ToolbarItem(placement: .principal) {
             Text("Just One Thing")
-                .permanentMarker(22.0, relativeTo: .title)
+                .permanentMarkerTitle3()
         }
         ToolbarItem(placement: .topBarTrailing) {
                 NavigationLink {

@@ -7,7 +7,7 @@
 import SwiftUI
 
 
-struct WordJumblingAnimation: View {
+public struct WordJumblingAnimation: View {
     
     // ID available for ForEach
     typealias Letter = (letter: String, id: UUID)
@@ -21,13 +21,13 @@ struct WordJumblingAnimation: View {
         TimeInterval.random(in: 0.1...0.3)
     }
     
-    init(_ finalString: String, maxCycles: Int = 10) {
+    public init(_ finalString: String, maxCycles: Int = 10) {
         self.finalString = finalString
         self.maxCycles = maxCycles
         self.letterList = [Letter]()
     }
     
-    var body: some View {
+    public var body: some View {
         
         HStack(spacing: 0) {
             ForEach(letterList, id: \.id) { letter in
@@ -82,8 +82,4 @@ struct LetterSpinner: View {
             }
     }
 
-}
-
-#Preview {
-    WordJumblingAnimation("Wash all the cats")
 }

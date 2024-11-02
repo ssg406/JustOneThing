@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+#if os(iOS)
 struct GetTodoItemIntentResultView: View {
     
     let foundItem: TodoItem
@@ -51,3 +52,5 @@ struct GetTodoItemIntentResultView: View {
     GetTodoItemIntentResultView(foundItem: TodoItem.examples.randomElement()!)
         .padding()
 }
+
+#endif
