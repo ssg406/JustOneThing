@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import JustOneThingUI
 
 struct ContentView: View {
     
@@ -18,7 +19,7 @@ struct ContentView: View {
         
         NavigationStack {
             ZStack {
-                BlueGradientBackground()
+                GradientBackground(.blueGreen)
                 VStack {
                     NavigationLink {
                         AddTodo()

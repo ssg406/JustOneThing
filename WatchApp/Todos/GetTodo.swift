@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import SwiftData
+import JustOneThingUI
 
 struct GetTodo: View {
     
@@ -21,11 +22,11 @@ struct GetTodo: View {
     
     var body: some View {
         ZStack {
-            DarkBlueGradientBackground()
+            GradientBackground(.darkBlue)
             if let todo = todo {
                 VStack(spacing: 15) {
                     WordJumblingAnimation(todo.name)
-                        .headlineText()
+                        .quicksandHeadline()
                     if showButtons {
                         VStack {
                             Button("Go!") {
@@ -46,7 +47,7 @@ struct GetTodo: View {
                 }
             }
         }
-        .bodyText()
+        .quicksandBody()
         .ignoresSafeArea()
         .onAppear {
             Task {

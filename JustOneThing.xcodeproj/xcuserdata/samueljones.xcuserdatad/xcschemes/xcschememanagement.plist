@@ -12,7 +12,7 @@
 		<key>JustOneThing.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>JustOneThingTests.xcscheme_^#shared#^_</key>
 		<dict>
@@ -22,12 +22,25 @@
 		<key>JustOneThingWatch Watch App.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
 		</dict>
 		<key>JustOneThingWidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>896899132CA3E61F005DFF98</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>89A721132CD07795008F6E52</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

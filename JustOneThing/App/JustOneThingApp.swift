@@ -16,6 +16,8 @@ import JustOneThingUI
 // TODO: Allow items to be put back into deck with at time delay before they are selected
 
 // TODO: AppScreen enum that is hashable, has viewbuilder function that returns views, each has label and destination
+
+// TODO: Send me a notification daily with how many items i have total (enable/disable in settings)
 @main
 struct JustOneThingApp: App {
     

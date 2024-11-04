@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		893723462CD87D7200092370 /* JustOneThingData in Frameworks */ = {isa = PBXBuildFile; productRef = 893723452CD87D7200092370 /* JustOneThingData */; };
+		893723472CD87D7200092370 /* JustOneThingData in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 893723452CD87D7200092370 /* JustOneThingData */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		893723492CD8A0D500092370 /* JustOneThingData in Frameworks */ = {isa = PBXBuildFile; productRef = 893723482CD8A0D500092370 /* JustOneThingData */; };
+		8937234A2CD8A0D500092370 /* JustOneThingData in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 893723482CD8A0D500092370 /* JustOneThingData */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		894373C82CD5B86D007897D9 /* JustOneThingUI in Frameworks */ = {isa = PBXBuildFile; productRef = 894373C72CD5B86D007897D9 /* JustOneThingUI */; };
 		894373CA2CD5B86E007897D9 /* JustOneThingUI in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 894373C72CD5B86D007897D9 /* JustOneThingUI */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		894373CC2CD5B885007897D9 /* JustOneThingUI in Frameworks */ = {isa = PBXBuildFile; productRef = 894373CB2CD5B885007897D9 /* JustOneThingUI */; };
@@ -75,6 +79,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				893723472CD87D7200092370 /* JustOneThingData in Embed Frameworks */,
 				894373CE2CD5B885007897D9 /* JustOneThingUI in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -86,6 +91,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8937234A2CD8A0D500092370 /* JustOneThingData in Embed Frameworks */,
 				894373D22CD5B891007897D9 /* JustOneThingUI in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -126,6 +132,7 @@
 
 /* Begin PBXFileReference section */
 		8912662D2CD4B3EA00EA0280 /* JustOneThing.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JustOneThing.xcodeproj; path = JustOneThing/Resources/JustOneThing.xcodeproj; sourceTree = SOURCE_ROOT; };
+		893723442CD87ABA00092370 /* JustOneThingData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JustOneThingData; sourceTree = "<group>"; };
 		894370482CD4C42B007897D9 /* JustOneThing.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = JustOneThing.xcodeproj; sourceTree = "<group>"; };
 		894373C62CD5B6A0007897D9 /* JustOneThingUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = JustOneThingUI; sourceTree = "<group>"; };
 		895536B62CCF914000C3288B /* JustOneThingWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JustOneThingWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,7 +197,7 @@
 			);
 			target = 896899132CA3E61F005DFF98 /* JustOneThing */;
 		};
-		89A7212A2CD07798008F6E52 /* Exceptions for "JustOneThingWidget" folder in "JustOneThingWidgetExtension" target */ = {
+		89A7212A2CD07798008F6E52 /* Exceptions for "Widget" folder in "JustOneThingWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -208,9 +215,9 @@
 			path = JustOneThingTests;
 			sourceTree = "<group>";
 		};
-		895536B72CCF914100C3288B /* JustOneThingWatchApp */ = {
+		895536B72CCF914100C3288B /* WatchApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = JustOneThingWatchApp;
+			path = WatchApp;
 			sourceTree = "<group>";
 		};
 		895536C82CCF914300C3288B /* JustOneThingWatchApp Tests */ = {
@@ -239,12 +246,12 @@
 			path = JustOneThingUITests;
 			sourceTree = "<group>";
 		};
-		89A7211A2CD07796008F6E52 /* JustOneThingWidget */ = {
+		89A7211A2CD07796008F6E52 /* Widget */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				89A7212A2CD07798008F6E52 /* Exceptions for "JustOneThingWidget" folder in "JustOneThingWidgetExtension" target */,
+				89A7212A2CD07798008F6E52 /* Exceptions for "Widget" folder in "JustOneThingWidgetExtension" target */,
 			);
-			path = JustOneThingWidget;
+			path = Widget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -254,6 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893723462CD87D7200092370 /* JustOneThingData in Frameworks */,
 				894373CC2CD5B885007897D9 /* JustOneThingUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +307,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				893723492CD8A0D500092370 /* JustOneThingData in Frameworks */,
 				89A721192CD07796008F6E52 /* SwiftUI.framework in Frameworks */,
 				894373D02CD5B891007897D9 /* JustOneThingUI in Frameworks */,
 				89A721172CD07796008F6E52 /* WidgetKit.framework in Frameworks */,
@@ -325,10 +334,11 @@
 		8968990B2CA3E61F005DFF98 = {
 			isa = PBXGroup;
 			children = (
+				893723442CD87ABA00092370 /* JustOneThingData */,
 				894373C62CD5B6A0007897D9 /* JustOneThingUI */,
 				896899162CA3E61F005DFF98 /* JustOneThing */,
-				895536B72CCF914100C3288B /* JustOneThingWatchApp */,
-				89A7211A2CD07796008F6E52 /* JustOneThingWidget */,
+				895536B72CCF914100C3288B /* WatchApp */,
+				89A7211A2CD07796008F6E52 /* Widget */,
 				89A721152CD07795008F6E52 /* Frameworks */,
 				896899152CA3E61F005DFF98 /* Products */,
 				896899332CA3E620005DFF98 /* JustOneThingUITests */,
@@ -378,11 +388,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				895536B72CCF914100C3288B /* JustOneThingWatchApp */,
+				895536B72CCF914100C3288B /* WatchApp */,
 			);
 			name = "JustOneThingWatch Watch App";
 			packageProductDependencies = (
 				894373CB2CD5B885007897D9 /* JustOneThingUI */,
+				893723452CD87D7200092370 /* JustOneThingData */,
 			);
 			productName = "JustOneThingWatch Watch App";
 			productReference = 895536B62CCF914000C3288B /* JustOneThingWatch Watch App.app */;
@@ -521,11 +532,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				89A7211A2CD07796008F6E52 /* JustOneThingWidget */,
+				89A7211A2CD07796008F6E52 /* Widget */,
 			);
 			name = JustOneThingWidgetExtension;
 			packageProductDependencies = (
 				894373CF2CD5B891007897D9 /* JustOneThingUI */,
+				893723482CD8A0D500092370 /* JustOneThingData */,
 			);
 			productName = JustOneThingWidgetExtension;
 			productReference = 89A721142CD07795008F6E52 /* JustOneThingWidgetExtension.appex */;
@@ -744,15 +756,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "JustOneThingWatch Watch App/JustOneThingWatch Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = WatchApp/WatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"JustOneThingWatch Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 9G643QLW3P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JustOneThingWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchApp;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -776,15 +788,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "JustOneThingWatch Watch App/JustOneThingWatch Watch App.entitlements";
+				CODE_SIGN_ENTITLEMENTS = WatchApp/WatchApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"JustOneThingWatch Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 9G643QLW3P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "JustOneThingWatch-Watch-App-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWatch;
+				INFOPLIST_KEY_CFBundleDisplayName = WatchApp;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1145,7 +1157,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9G643QLW3P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = JustOneThingWidget/Info.plist;
+				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -1173,7 +1185,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9G643QLW3P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = JustOneThingWidget/Info.plist;
+				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = JustOneThingWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
@@ -1281,6 +1293,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		893723452CD87D7200092370 /* JustOneThingData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JustOneThingData;
+		};
+		893723482CD8A0D500092370 /* JustOneThingData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = JustOneThingData;
+		};
 		894373C72CD5B86D007897D9 /* JustOneThingUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JustOneThingUI;

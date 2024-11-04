@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import JustOneThingUI
 
 struct AddTodo: View {
     
@@ -31,7 +32,7 @@ struct AddTodo: View {
         .alert("At least a name is required", isPresented: $model.validationError) {
             Button("OK", role: .cancel) { }
         }
-        .bodyText()
+        .quicksandBody()
     }
 }
 
