@@ -26,11 +26,7 @@ struct PreviewData: PreviewModifier {
             todos.forEach {
                 context.insert($0)
             }
-            
-            let streaks = Streak.examples
-            streaks.forEach {
-                context.insert($0)
-            }
+        
             
             let settings = Settings()
             context.insert(settings)
