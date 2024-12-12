@@ -18,7 +18,7 @@ actor DataModel {
     nonisolated lazy var modelContainer: ModelContainer = {
         let container: ModelContainer
         do {
-            container = try ModelContainer(for: TodoItem.self, Settings.self, Streak.self)
+            container = try ModelContainer(for: TodoItem.self, Settings.self)
         } catch {
             fatalError("Unable to create model container: \(error)")
         }
